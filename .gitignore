@@ -1,0 +1,31 @@
+# Global ignore for logs and common files
+logs
+*.log
+npm-debug.log*
+# Node modules in both client and server directories
+client/node_modules/
+server/node_modules/
+
+# Dist/build directories in both client 
+client/dist
+
+# Ignore environment variables in both client and server
+client/.env
+server/.env
+
+# Ignore cache and lock files
+client/.cache
+server/.cache
+
+client/package-lock.json
+server/package-lock.json
+
+# Ignore editor directories and files globally
+.vscode/
+.idea/
+.DS_Store
+
+# Specific to client (React, Next.js, etc.)
+client/.parcel-cache
+client/.eslintcache
+client/.turbo
