@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const handleRegisterSubmit = async (data, setSnackbarParams,navigate) => {
-  const serverUrl = import.meta.env.VITE_SERVER_URL;
+  const serverUrl = import.meta.env.VITE_SERVER_URL||'http://localhost:5000';
    
   try {
     const response = await axios.post(`${serverUrl}/api/register`, data);

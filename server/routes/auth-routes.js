@@ -35,9 +35,9 @@ router.post("/login", (req, res, next) => {
     });
   })(req, res, next);
 });
+// register route
 router.post("/register", async (req, res) => {
   const { username, password, email } = req.body;
-  console.log(req.body);
   try {
     const newUser = await new User({
       username,
@@ -46,7 +46,6 @@ router.post("/register", async (req, res) => {
       provider:"local"
     });
     await newUser.save();
-    console.log("this is the new user : ",newUser);
     return res
       .status(201)
       .json({ message: "The registration process was completed successfully" });
@@ -64,16 +63,12 @@ router.post("/register", async (req, res) => {
   }
 });
 router.get("/logout", async (req, res) => {
-  try {
     await req.logout((err) => {
       if (err) {
         return res.status(500).json({ message: "Logout failed!", error: err });
       }
       res.status(200).json({ message: "Logout successfully" });
     });
-  } catch (err) {
-    res.status(500).json({ message: "Logout failed!", error: err });
-  }
 });
 
 // register or login  with google -------------------------------------------------
@@ -105,7 +100,7 @@ router.get(
 
 //register or login with github-----------------------------------------------------
 router.get(
-  "/signWithGithub",(req,res,next)=>{console.log("hy hy hy hyhyhyhy h yh y hy hyhy");next()},
+  "/signWithGithub",
   passport.authenticate("github", { scope: ["user:email"] })
 );
 

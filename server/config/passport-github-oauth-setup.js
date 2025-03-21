@@ -12,9 +12,7 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, done) {
       try {
-        console.log("this si pro file :",profile);
         let email = null;
-
         // If the email is available in profile, use it
         if (profile.emails && profile.emails.length>0) {
           email = profile.emails[0].value;
@@ -60,3 +58,15 @@ passport.use(
     }
   )
 );
+passport.serializeUser((user,done)=>{
+  done(null,user.githubId);
+});
+passport.deserializeUser(async (githubId,done)=>{
+  try{
+      const user = await User.findOne({githubId : githubId})
+      done(null,user);
+  }
+  catch(err){
+      done(err);
+  }
+})

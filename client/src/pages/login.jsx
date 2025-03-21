@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   TextField,
@@ -14,9 +13,9 @@ import SignWithButton from "../components/SignWithButton";
 import SideImage from "../components/SideImage";
 import Header from "../components/header";
 import { Link, useNavigate } from "react-router-dom";
-import handleLoginSubmit from "../src/api/login";
+import handleLoginSubmit from "../api/login";
 import { useForm } from "react-hook-form";
-import { useSnackbarContext } from "../src/assets/Mycontext";
+import { useSnackbarContext } from "../assets/Mycontext";
 
 function LoginPage() {
   const theme = useTheme(); // Access the theme
@@ -28,18 +27,15 @@ function LoginPage() {
   } = useForm();
   const { setSnackbarParams } = useSnackbarContext();
   const navigate = useNavigate();
-
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
   const handleGoogleSignIn = () => {
-    console.log("i will send the google auth requaest");
-    window.open("http://localhost:5000/api/signWithGoogle", "_self");
+    window.open(`${SERVER_URL}/api/signWithGoogle`, "_self");
   };
   const handleFacebookSignIn = () => {
-    console.log("i will send the facebook auth requaest");
-    window.open("http://localhost:5000/api/signWithFacebook", "_self");
+    window.open(`${SERVER_URL}/api/signWithFacebook`, "_self");
   };
   const handleGithubSignIn = () => {
-    console.log("i will send the github auth requaest");
-    window.open("http://localhost:5000/api/signWithGithub", "_self");
+    window.open(`${SERVER_URL}/api/signWithGithub`, "_self");
   };
 
   return (
@@ -49,7 +45,7 @@ function LoginPage() {
         className="boxShadow"
         sx={{
           width: "100%",
-          height: "60vh",
+          height: "62vh",
           backgroundColor: "white",
           display: "flex",
           borderRadius: "8px",

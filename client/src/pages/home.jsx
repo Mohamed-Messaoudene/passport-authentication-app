@@ -27,7 +27,9 @@ function Home() {
           >
             Log in
           </Button>
+
           <span>Or</span>
+          
           <Button
             type="submit"
             variant="outlined"

@@ -7,13 +7,12 @@ import {
   useTheme,
 } from "@mui/material";
 import { blueGrey } from "@mui/material/colors";
-import React from "react";
 import Header from "../components/header";
 import SideImage from "../components/SideImage";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import handleRegisterSubmit from "../src/api/register";
-import { useSnackbarContext } from "../src/assets/Mycontext";
+import handleRegisterSubmit from "../api/register";
+import { useSnackbarContext } from "../assets/Mycontext";
 
 function Register() {
   const theme = useTheme(); // Access the theme

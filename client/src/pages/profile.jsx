@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Header from "../components/header";
 import SideImage from "../components/SideImage";
 import { Box, Button, Typography, useTheme } from "@mui/material";
 import { blueGrey } from "@mui/material/colors";
 import { Logout } from "@mui/icons-material";
 import DynamicWidthTextField from "../components/DynamicWidthTextField";
-import handleLogout from "../src/api/logout";
+import handleLogout from "../api/logout";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSnackbarContext } from "../src/assets/Mycontext";
-import fetchProfileData from "../src/api/fetchProfileData";
+import { useSnackbarContext } from "../assets/Mycontext";
+import fetchProfileData from "../api/fetchProfileData";
 
 function Profile() {
   const theme = useTheme();
@@ -32,11 +32,11 @@ function Profile() {
     return <div>Loading...</div>;
   }
 
-  const { username = "your username", email = "your email",profilePicture = "/profile.png" } = profileData;
+  const { username = "example_username", email = "example@example.com",profilePicture = "/profile.png" } = profileData;
 
   return (
     <>
-      <Header title={"Home"} />
+      <Header title={"Profile"} />
       <Box
         className="boxShadow"
         sx={{

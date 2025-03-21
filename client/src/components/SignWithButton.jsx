@@ -1,5 +1,4 @@
 import { Button, useTheme } from '@mui/material';
-import React from 'react';
 
 function SignWithButton({ content, Icon ,color,handleOnClick}) { 
   const theme = useTheme();

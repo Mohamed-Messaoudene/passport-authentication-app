@@ -1,6 +1,5 @@
 import { Alert, Snackbar } from "@mui/material";
-import React from "react";
-import { useSnackbarContext } from "../src/assets/Mycontext";
+import { useSnackbarContext } from "../assets/Mycontext";
 
 function CustomSnackBar() {
   const {snackbarParams,setSnackbarParams} = useSnackbarContext();

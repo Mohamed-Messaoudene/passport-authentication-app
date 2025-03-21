@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     validate: {
       validator: function (value) {
-        return this.googleId || (value && value.length > 0);
+        return this.googleId || this.facebookId || this.githubId || (value && value.length > 0);
       },
       message: "Username is required ",
     },
@@ -51,7 +51,6 @@ userSchema.index({ email: 1, provider: 1 }, { unique: true });
 
 // Password comparison method for local users
 userSchema.methods.comparePassword = async function (candidatePassword) {
-  console.log(this.password);
   return await bcrypt.compare(candidatePassword, this.password);
 };
 

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const fetchProfileData = async ({ setSnackbarParams, navigate, setProfileData }) => {
   try {
-    const serverUrl = import.meta.env.VITE_SERVER_URL;
+    const serverUrl = import.meta.env.VITE_SERVER_URL||'http://localhost:5000';
     console.log("i will fetch the profile info")
     const response = await axios.get(`${serverUrl}/api/profile`, { withCredentials: true });
         
@@ -12,7 +12,7 @@ const fetchProfileData = async ({ setSnackbarParams, navigate, setProfileData })
       const content = {
         username: response.data.user.username,
         email: response.data.user.email,
-        profilePicture:response.data.user.profilePicture
+        profilePicture:response.data.user.profilePicture,
       };
 
       setSnackbarParams({
@@ -32,7 +32,6 @@ const fetchProfileData = async ({ setSnackbarParams, navigate, setProfileData })
           open: true,
           color: "warning",
         });
-        navigate("/login");
       }
     } else {
       // Other types of errors (like network errors)
@@ -42,6 +41,8 @@ const fetchProfileData = async ({ setSnackbarParams, navigate, setProfileData })
         color: "warning",
       });
     }
+    navigate("/login");
+
   }
 };
 export default fetchProfileData;

@@ -2,7 +2,7 @@
 const  session = require('express-session');
 const  MongoStore = require('connect-mongo');
 
-const secret_key = process.env._KEY || 'your_default_secret_key';
+const secret_key = process.env.SESSION_SECRET_KEY || 'your_default_secret_key';
 const db_connection_uri = process.env.DB_CONNECTION_URI || 'your_default_mongo_url'; 
 
 const sessionMiddleware = session({

@@ -3,19 +3,19 @@ import "./app.css";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Login from "../pages/login";
-import Register from "../pages/register";
-import Home from "../pages/home";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import Home from "./pages/home";
 import theme from "./assets/theme";
-import Profile from "../pages/profile";
+import Profile from "./pages/profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CustomSnackBar from "../components/CustomSnackBar";
+import CustomSnackBar from "./components/CustomSnackBar";
 import {useState } from "react";
 import {myContext} from "./assets/Mycontext";
 
 function App() {
   const [snackbarParams, setSnackbarParams] = useState({
-    message: "mohamed messaoudene",
+    message: "",
     open: false,
     color: "warning",
   });

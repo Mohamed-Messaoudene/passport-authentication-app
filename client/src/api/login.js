@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const handleLoginSubmit = async (data, reset, setSnackbarParams, navigate) => {
-  const serverUrl = import.meta.env.VITE_SERVER_URL;
+  const serverUrl = import.meta.env.VITE_SERVER_URL||'http://localhost:5000';
   try {
     const response = await axios.post(
       `${serverUrl}/api/login`,
@@ -23,7 +23,6 @@ const handleLoginSubmit = async (data, reset, setSnackbarParams, navigate) => {
         username: response.data.user.username,
         email: response.data.user.email,
       };
-      console.log(content)
       navigate("/profile", { state: content });
     }
   } catch (error) {
