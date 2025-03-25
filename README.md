@@ -49,7 +49,7 @@ VITE_SERVER_URL=
 #### `.env` in `server/` (Backend):
 so get all these keys and URLs and placed here !
 ```
-DB_CONNECTION_URI=
+DB_CONNECTION_URL=
 CLIENT_URL=
 SESSION_SECRET_KEY=
 GOOGLE_CLIENT_ID=

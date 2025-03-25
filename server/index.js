@@ -5,7 +5,9 @@ const authRoutes = require("./routes/auth-routes");
 const cors = require("cors");
 const path = require("path");
 const sessionMiddleware = require("./middlwares/sessionMiddleware");
+const { prototype } = require("module");
 const app = express();
+
 require("./config/passport-local-setup");
 require("./config/passport-google-oauth-setup");
 require("./config/passport-facebook-oauth-setup");
@@ -32,7 +34,7 @@ app.use(passport.session());
 
 app.use("/api", authRoutes);
 
-
-app.listen(5000, async () => {
-  console.log("the server is running on port 5000 !!");
+const port =  process.env.PORT;
+app.listen(port, async () => {
+  console.log("the server is running on port :",port);
 });

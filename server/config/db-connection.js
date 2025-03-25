@@ -4,7 +4,7 @@ require("dotenv").config();
 function connectDB() {
   // Connect to MongoDB using Mongoose
   mongoose
-    .connect(process.env.DB_CONNECTION_URI,{
+    .connect(process.env.DB_CONNECTION_URL,{
       serverSelectionTimeoutMS: 5000 // Timeout in milliseconds
     })
     .then(() => {
